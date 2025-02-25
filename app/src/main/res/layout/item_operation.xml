@@ -1,0 +1,46 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:padding="0dp">
+
+    <ImageButton
+        android:id="@+id/buttonSettingsDel"
+        style="@style/WhiteButtonStyleAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:contentDescription="@string/delete"
+        app:srcCompat="@drawable/bin_delete_remove_trash_svgrepo_com"
+        app:tint="@color/design_default_color_error"
+        android:visibility="gone"/>
+
+    <CheckBox
+        android:id="@+id/checkboxOperation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="0dp"
+        android:padding="0dp"/>
+
+    <TextView
+        android:id="@+id/textOperationName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginStart="4dp"
+        android:text="@string/operation_name"
+        android:padding="2dp"
+        android:textSize="16sp" />
+
+    <ImageButton
+        android:id="@+id/buttonSettingsUpdate"
+        style="@style/WhiteButtonStyleAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:contentDescription="@string/add"
+        android:paddingEnd="8dp"
+        android:paddingStart="2dp"
+        app:srcCompat="@drawable/edit_svgrepo_com"
+        android:visibility="gone"/>
+
+</LinearLayout>

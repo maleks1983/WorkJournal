@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/add_operations"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/add_operations_text_view"
+        android:layout_gravity="center_horizontal"
+        android:textSize="16sp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"/>
+
+    <EditText
+        android:id="@+id/add_operations_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:autofillHints="text"
+        android:hint="@string/add_new_operations_hint"
+        android:gravity="top|start"
+        android:breakStrategy="high_quality"
+        android:inputType="textMultiLine"
+        android:textSize="16sp"
+        android:singleLine="false"
+        android:maxLines="5"
+        android:scrollbars="vertical"
+        android:overScrollMode="always"
+        android:imeOptions="actionDone" />
+
+</LinearLayout>

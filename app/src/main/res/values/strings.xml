@@ -1,0 +1,67 @@
+<resources>
+    <string name="app_name">WorkJournal</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Головна</string>
+    <string name="menu_slideshow">Звіт за місяць</string>
+    <string name="menu_settings">Налаштування</string>
+    <string name="menu_logout">Вихід</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="send_mail">send mail</string>
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="decrease_date">Decrease date</string>
+    <string name="increase_date">Increase date</string>
+    <string name="prompt_phone">phone</string>
+    <string name="phone_sufix">380</string>
+    <string name="prompt_name">name</string>
+    <string name="userId">User ID</string>
+    <string name="userName">User name</string>
+    <string name="id">ID:</string>
+    <string name="quantity">0</string>
+    <string name="add">add</string>
+    <string name="ok">ok</string>
+    <string name="none" />
+    <string name="list_operations_user_title">Список операцій</string>
+    <string name="day_journal_title">Виконання за день</string>
+    <string name="unit_quantity">шт.</string>
+    <string name="save">Save</string>
+    <string name="operation_name">Назва операції</string>
+    <string name="delete">Delete</string>
+    <string name="yes">ТАК</string>
+    <string name="no">НІ</string>
+    <string name="log_out_text">Ви дійсно хочете вийти?</string>
+    <string name="settings_add">Додати нову операцію</string>
+    <string name="settings_update">Оновити операцію</string>
+    <string name="settings_delete">Видалити операцію</string>
+    <string name="add_new_operations_hint">Нова операція</string>
+    <string name="add_operations_text_view">Введіть назву операції</string>
+    <string name="button_operation_home">Кнопка списку операцій</string>
+    <string name="report_work_day_text">Кількість робочих днів -</string>
+
+</resources>
