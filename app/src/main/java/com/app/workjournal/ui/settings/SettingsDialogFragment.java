@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
+import android.widget.Button;
 import android.widget.EditText;
 
 import androidx.annotation.NonNull;
@@ -26,14 +27,11 @@ public class SettingsDialogFragment extends DialogFragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.dialog_layout, container, false);
         editText = view.findViewById(R.id.add_operations_edit);
-        editText.setOnEditorActionListener((v, actionId, event) -> {
-            if (actionId == EditorInfo.IME_ACTION_DONE || actionId == EditorInfo.IME_ACTION_GO) {
-                viewModel.addNewOperations(editText.getText().toString());
-                viewModel.updateOperationsList();
-                dismiss();
-                return true;
-            }
-            return false;
+        Button button = view.findViewById(R.id.add_operations_btn_ok);
+        button.setOnClickListener(v -> {
+            viewModel.addNewOperations(editText.getText().toString());
+            viewModel.updateOperationsList();
+            dismiss();
         });
         return view;
     }
