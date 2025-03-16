@@ -7,20 +7,17 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.MutableLiveData;
 
 import com.app.workjournal.data.db.AppDatabase;
-import com.app.workjournal.data.db.CacheManager;
 import com.app.workjournal.data.dto.JournalWithOperation;
 import com.app.workjournal.data.entity.MonthPeriod;
 
-import org.jetbrains.annotations.Contract;
-
 import java.util.Calendar;
 import java.util.List;
+import java.util.Locale;
 import java.util.Objects;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class ReportRepository {
-    private final CacheManager cacheManager;
     private final AppDatabase database;
     private final ExecutorService executorService;
     private final Long userId;
@@ -28,7 +25,6 @@ public class ReportRepository {
 
     public ReportRepository(Context context) {
         executorService = Executors.newSingleThreadExecutor();
-        this.cacheManager = CacheManager.getInstance();
         this.database = AppDatabase.getInstance(context);
         userId = Objects.requireNonNull(UserRepository.getInstance(context).getUser()).getId();
     }
@@ -59,18 +55,24 @@ public class ReportRepository {
     }
 
     @NonNull
-    @Contract("_ -> new")
     private MonthPeriod getPeriod(@NonNull Calendar calendar) {
-        Calendar copyCalendar = (Calendar) calendar.clone();
-        copyCalendar.set(Calendar.DATE, 1);
-        copyCalendar.set(Calendar.HOUR_OF_DAY, 0);
-        copyCalendar.set(Calendar.MINUTE, 0);
-        copyCalendar.set(Calendar.SECOND, 0);
-        copyCalendar.set(Calendar.MILLISECOND, 0);
-        long startDay = copyCalendar.getTimeInMillis();
-        copyCalendar.set(Calendar.DATE, Calendar.getInstance().getMaximum(Calendar.DAY_OF_MONTH));
-        long endDay = copyCalendar.getTimeInMillis();
-        return new MonthPeriod(startDay, endDay);
+        int id = Integer.parseInt(String.format(Locale.UK, "%d%02d", calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH) + 1));
+        MonthPeriod period = database.periodDao().get(id);
+        if (period == null) {
+            Calendar copyCalendar = (Calendar) calendar.clone();
+            copyCalendar.set(Calendar.DAY_OF_MONTH, 1);
+            copyCalendar.set(Calendar.HOUR_OF_DAY, 0);
+            copyCalendar.set(Calendar.MINUTE, 0);
+            copyCalendar.set(Calendar.SECOND, 0);
+            copyCalendar.set(Calendar.MILLISECOND, 0);
+            long startDay = copyCalendar.getTimeInMillis();
+            copyCalendar.set(Calendar.DAY_OF_MONTH, calendar.getActualMaximum(Calendar.DAY_OF_MONTH));
+            long endDay = copyCalendar.getTimeInMillis();
+            return new MonthPeriod(id, startDay, endDay);
+        } else {
+            return period;
+        }
+
     }
 
 }

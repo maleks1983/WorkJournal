@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -28,6 +29,8 @@ import java.util.Calendar;
 public class ReportFragment extends Fragment {
     private FragmentReportBinding binding;
     private final Calendar calendar;
+
+
     private ReportViewModel viewModel;
 
     public ReportFragment() {
@@ -97,7 +100,7 @@ public class ReportFragment extends Fragment {
         binding.fab.setOnClickListener(view ->
                 Snackbar.make(view, "Відправка місячного звіту", Snackbar.LENGTH_LONG)
                         .setAction("Відправити звіт", v -> {
-                            sendReportViber(viewModel.printReport());
+                            sendReport(viewModel.printReport());
                         })
                         .setAnchorView(R.id.fab).show()
         );
@@ -145,7 +148,7 @@ public class ReportFragment extends Fragment {
 
 
     @SuppressLint("QueryPermissionsNeeded")
-    private void sendReportViber(String report) {
+    private void sendReport(String report) {
         Intent intent = new Intent(Intent.ACTION_SEND);
         intent.setType("text/plain");
         intent.putExtra(Intent.EXTRA_TEXT, report);

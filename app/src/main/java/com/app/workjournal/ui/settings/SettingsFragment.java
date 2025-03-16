@@ -24,6 +24,7 @@ import com.app.workjournal.data.dto.SelectedOperation;
 import com.app.workjournal.data.entity.User;
 import com.app.workjournal.data.repository.SettingsRepository;
 import com.app.workjournal.databinding.FragmentSettingsBinding;
+import com.app.workjournal.ui.settings.period.SettingsDialogPeriodFragment;
 
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -92,10 +93,16 @@ public class SettingsFragment extends Fragment {
             @Override
             public boolean onMenuItemSelected(@NonNull MenuItem menuItem) {
                 if (menuItem.getItemId() == R.id.action_settings_add) {
-                    new SettingsDialogFragment(viewModel).show(getParentFragmentManager(), "Dialog");
+                    new SettingsDialogAddOperationFragment(viewModel).show(getParentFragmentManager(), "Dialog");
                     Toast.makeText(requireContext(), "Налаштування натиснуті", Toast.LENGTH_SHORT).show();
                     return true;
                 }
+                if (menuItem.getItemId() == R.id.action_settings_update_period) {
+                    new SettingsDialogPeriodFragment().show(getParentFragmentManager(), "Dialog");
+                    Toast.makeText(requireContext(), "Зміна періоду натиснута", Toast.LENGTH_SHORT).show();
+                    return true;
+                }
+
                 return false;
 
             }

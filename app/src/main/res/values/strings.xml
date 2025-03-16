@@ -57,6 +57,7 @@
     <string name="no">НІ</string>
     <string name="log_out_text">Ви дійсно хочете вийти?</string>
     <string name="settings_add">Додати нову операцію</string>
+    <string name="settings_update_period">Змінити період місяця</string>
     <string name="settings_update">Оновити операцію</string>
     <string name="settings_delete">Видалити операцію</string>
     <string name="add_new_operations_hint">Нова операція</string>

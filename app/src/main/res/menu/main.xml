@@ -5,5 +5,8 @@
             android:id="@+id/action_settings_add"
             android:title="@string/settings_add" />
 
+        <item
+            android:id="@+id/action_settings_update_period"
+            android:title="@string/settings_update_period" />
     </group>
 </menu>

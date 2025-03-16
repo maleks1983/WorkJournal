@@ -6,7 +6,6 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MediatorLiveData;
-import androidx.lifecycle.MutableLiveData;
 
 import com.app.workjournal.data.db.AppDatabase;
 import com.app.workjournal.data.db.CacheManager;
@@ -31,6 +30,8 @@ public class SettingsRepository {
     private final AppDatabase database;
     private final User user;
     private final UserRepository userRepository;
+
+
 
     public SettingsRepository(Context context) {
         cacheManager = CacheManager.getInstance();
@@ -146,7 +147,7 @@ public class SettingsRepository {
 
     public void updateOperation(Operation operation) {
         executorService.execute(() -> {
-            try{
+            try {
                 database.operationDao().update(operation);
                 removeCacheSelectedOperations();
             } catch (Exception e) {
@@ -155,4 +156,5 @@ public class SettingsRepository {
         });
 
     }
+
 }
